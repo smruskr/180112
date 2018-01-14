@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" lang="ja">
+    <title>tab.js</title>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+      crossorigin="anonymous">
+    </script>
+
+    <script>
+      $(document).ready(function(){
+        $('#1').addClass('is-active');
+        $('.trigger a').on('click',function(){
+          var id=$(this).attr('href');
+          $('.panel-content').removeClass('is-active');
+          $('.trigger-content').removeClass('current');
+          $(id).addClass('is-active');
+          $(this).addClass('current');
+        })
+      })
+    </script>
+
+    <style type="text/css">
+      *{
+        box-sizing: border-box;
+        text-decoration: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .tab{
+        display: block;
+        margin: 20px;
+      }
+
+      .trigger a{
+        display: inline-block;
+        width: 120px;
+        height: 40px;
+        margin-right: 10px;
+        border-radius: 4px 4px 0 0;
+        color: #fff;
+        background-color: #17B978;
+        text-align: center;
+        line-height: 40px;
+      }
+
+      .trigger a:last-child{
+        margin-right: 0;
+      }
+
+      .trigger a:hover{
+        background-color: #086972;
+        transition: all 0.2s;
+      }
+
+      .panel-content{
+        display: none;
+        width: 380px;
+        border: 1px solid #555;
+        border-radius: 0 0 4px 4px;
+        padding: 20px;
+      }
+
+      .is-active{
+        display: block;
+      }
+
+      .trigger a.current{
+        background-color: #086972;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="tab">
+      <div class="trigger">
+        <a href="#1" class="trigger-content">1</a><a href="#2" class="trigger-content">2</a><a href="#3" class="trigger-content">3</a>
+      </div>
+      <div class="panel">
+        <div class="panel-content" id="1">1</div>
+        <div class="panel-content" id="2">2<br>22</div>
+        <div class="panel-content" id="3">3<br>33<br>333</div>
+      </div>
+    </div>
+  </body>
+
+</html>
